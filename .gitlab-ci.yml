@@ -1,0 +1,22 @@
+stages:
+   - build
+   - test
+   - quality
+
+compile:
+   stage: build
+   script:
+      - make designPattern
+   artifacts:
+      paths:
+         - designPattern
+
+staticAnalysis:
+   stage: quality
+   script:
+      - make static
+
+styleChecking:
+   stage: quality
+   script:
+      - make style
